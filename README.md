@@ -59,23 +59,23 @@ This project is a full-stack application built using React, Express.js, and MySQ
    cd backend
     npm start
 #Folder Structure
-```bash
-  your-repo/
-  ├── backend/
-  │   ├── config/
-  │   │   └── db.js
-  │   ├── controllers/
-  │   ├── models/
-  │   ├── routes/
-  │   ├── app.js
-  │   └── package.json
-  └── frontend/
-      ├── src/
-      │   ├── components/
-      │   ├── pages/
-      │   ├── App.js
-      │   └── index.js
-      └── package.json
+   ```bash
+        your-repo/
+        ├── backend/
+        │   ├── config/
+        │   │   └── db.js
+        │   ├── controllers/
+        │   ├── models/
+        │   ├── routes/
+        │   ├── app.js
+        │   └── package.json
+        └── frontend/
+            ├── src/
+            │   ├── components/
+            │   ├── pages/
+            │   ├── App.js
+            │   └── index.js
+            └── package.json
 
 
 ### Instructions:
@@ -85,5 +85,8 @@ This project is a full-stack application built using React, Express.js, and MySQ
 
 This README file includes an overview, features, tech stack, installation steps, usage instructions, folder structure, contribution guidelines, license information, and contact details. Adjust the content as needed to fit your project's specifics.
 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 
