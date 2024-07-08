@@ -1,0 +1,167 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  background-color: #d1d0ce;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky; /* Makes the navbar sticky */
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 24px;
+}
+
+.navbar-logo {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.navbar-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: 15%;
+}
+
+.search-input {
+  width: 70%;
+  height: 35px;
+  padding-left: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  background-color: #fafafa; /* Change this to your desired color */
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 20px;
+  cursor: pointer;
+  position: relative; /* Required for the notification dropdown */
+}
+
+.bell-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bell-button img {
+  height: 28px;
+  width: 28px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* Notification Dropdown */
+.notifications-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.notifications-list {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.no-notifications {
+  padding: 10px;
+  text-align: center;
+  color: #777;
+}
+
+/* Responsive adjustments */
+
+@media screen and (max-width: 960px) {
+  .navbar-logo {
+    order: 1;
+  }
+  .navbar-icons {
+    order: 3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-input {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .navbar-search {
+    display: flex; /* Show search input on small screens */
+    padding-left: 5px;
+  }
+
+  .navbar-icons {
+    margin-top: 6px;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .navbar-icon {
+    margin-left: 5px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+}

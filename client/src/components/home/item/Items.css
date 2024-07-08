@@ -1,0 +1,140 @@
+/* styles.css */
+  
+.container {
+    position: absolute;
+    top: 45px;    /* Distance from top */
+    left: 60px;   /* Distance from left */
+    right: 0;     /* Stretch to the right edge */
+    bottom: 0;    /* Stretch to the bottom edge */
+    /* Just for visual reference */
+}
+  
+
+/* Item.css */
+
+.item-form-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.item-form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.add-item-button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.add-item-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-item-button:hover {
+  background-color: #45a049;
+}
+
+.items-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.items-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.items-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-image {
+  width: 200px;
+  height: 120px;
+  margin-right: 15px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.item-price {
+  color: #777;
+  font-size: 14px;
+}

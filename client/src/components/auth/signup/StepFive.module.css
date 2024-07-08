@@ -1,0 +1,98 @@
+.form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: start;
+    color: #333;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  
+  .inputGroup input:focus {
+    border-color: #007bff;
+  }
+
+  .linkBack{
+    font-size: 15px;
+    text-align: right;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .btnBack {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .btnBack:hover {
+    background-color: #5a6268;
+  }
+  
+  @media (max-width: 768px) {
+    .form {
+      padding: 1.5rem;
+    }
+    .btn {
+      font-size: 0.9rem;
+    }
+    .btnBack {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480){
+    .form {
+        padding: 1rem;
+    }
+    .btn {
+        font-size: 0.85rem;
+    }
+    .btnBack {
+        font-size: 0.85rem;
+    }
+}

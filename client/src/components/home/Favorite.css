@@ -1,0 +1,81 @@
+.container {
+    position: absolute;
+    top: 45px;    /* Distance from top */
+    left: 60px;   /* Distance from left */
+    right: 0;     /* Stretch to the right edge */
+    bottom: 0;    /* Stretch to the bottom edge */
+    /* Just for visual reference */
+}
+
+
+/* Favorite.css */
+
+.favorite-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .favorite-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .no-favorites {
+    text-align: center;
+    color: #777;
+  }
+  
+  .favorite-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .favorite-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .favorite-image {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .favorite-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .favorite-name {
+    font-weight: bold;
+  }
+  
+  .favorite-price {
+    color: #777;
+  }
+  
+  .remove-favorite-button {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .remove-favorite-button:hover {
+    background-color: #d32f2f;
+  }
+  
