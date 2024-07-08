@@ -59,6 +59,7 @@ This project is a full-stack application built using React, Express.js, and MySQ
    cd backend
     npm start
 #Folder Structure
+```bash
   your-repo/
   ├── backend/
   │   ├── config/
