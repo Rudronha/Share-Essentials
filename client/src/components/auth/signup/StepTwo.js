@@ -4,16 +4,26 @@ import styles from './StepTwo.module.css';
 import { Link } from 'react-router-dom';
 
 const StepTwo = ({ formData, onNext, onBack }) => {
-  const [verificationCode, setVerificationCode] = useState('');
+  const [otp, setOTP] = useState('');
 
   const handleVerifyEmail = async (e) => {
     e.preventDefault();
     try {
-      //const response = await axios.post('/verify-email', { email: formData.email, code: verificationCode });
-      //if (response.data.success) {
-        onNext({ emailVerified: true });
-      //}
+      const response = await axios.post('/users/verify-email', { email: formData.email, otp: otp });
+      console.log(response.data);
+      if (response.data.success) {
+        onNext({emailVerified: true});
+      }
     } catch (error) {
+      console.error('Error verifying email:', error);
+    }
+  };
+  const reSendEmail = async(e) => {
+    e.preventDefault();
+    try{
+      const response = await axios.post('/send-email', { email: formData.email });
+    }
+    catch (error) {
       console.error('Error verifying email:', error);
     }
   };
@@ -26,13 +36,13 @@ const StepTwo = ({ formData, onNext, onBack }) => {
         <input
           type="text"
           id="verificationCode"
-          value={verificationCode}
-          onChange={(e) => setVerificationCode(e.target.value)}
+          value={otp}
+          onChange={(e) => setOTP(e.target.value)}
           required
         />
       </div>
-      <Link className={styles.linkBack} onClick={onBack}>Resend</Link>
-      <Link className={styles.linkBack} onClick={onBack}>Back</Link>
+      <button className={styles.btnBack} onClick={onBack}>Back</button>
+      <button className={styles.btnBack} onClick={reSendEmail}>Resend</button>
       <button type="submit" className={styles.btn}>Verify</button>
     </form>
   );

@@ -3,9 +3,9 @@ import styles from './StepThree.module.css';
 import { Link } from 'react-router-dom';
 
 const StepThree = ({ formData, onNext, onBack }) => {
-  const [country, setCountry] = useState(formData.country);
-  const [state, setState] = useState(formData.state);
-  const [city, setCity] = useState(formData.city);
+  const [country, setCountry] = useState('');
+  const [state, setState] = useState('');
+  const [city, setCity] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const StepThree = ({ formData, onNext, onBack }) => {
           required
         />
       </div>
-      <Link type='' className={styles.linkBack} onClick={onBack}>Back</Link>
+      <button type='' className={styles.btnBack} onClick={onBack}>Back</button>
       <button type="submit" className={styles.btn}>Next</button>
       
     </form>

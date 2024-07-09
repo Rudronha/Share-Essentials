@@ -1,4 +1,25 @@
 const Product = require('../models/ProductModel');
+const User = require('../models/userModel');
+
+//get user details
+exports.getUser = async(req, res) => {
+    const userId = req.params.id;
+    console.log(userId);
+    try{
+        const user = await User.findByPk(userId,{
+            attributes: ['username','email','country','state','city','mobile']
+        });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        console.log(user);
+        res.status(201).json(user);
+    }catch(error){
+        console.error('Error fetching user:', error);
+        res.status(500).json({ error: 'Failed to fetch user' }); 
+    }
+}
+
 
 //add Item controller
 exports.addItem = async (req, res) => {

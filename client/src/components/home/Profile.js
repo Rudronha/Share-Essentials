@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Profile.css';
 import imgUser from '../../image/prof.jpg'
+import axios from '../../axiosConfig';
+import { UserContext } from '../../context/userContext';
+import { UserDataContext } from '../../context/userDataContext';
 
-// Mock user data for demonstration purposes
-const user = {
+//Mock user data for demonstration purposes
+const User = {
   name: 'John Doe',
   email: 'john.doe@example.com',
   address: '123 Main St, Anytown, USA',
@@ -12,9 +15,11 @@ const user = {
 
 const Profile = () => {
   const [editMode, setEditMode] = useState(false);
-  const [updatedUser, setUpdatedUser] = useState({ ...user });
-  const [profileImage, setProfileImage] = useState(user.profileImage || '');
-
+  const [updatedUser, setUpdatedUser] = useState({ ...User });
+  const [profileImage, setProfileImage] = useState(User.profileImage || '');
+  const { userData } = useContext(UserDataContext);
+  
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUpdatedUser({ ...updatedUser, [name]: value });
@@ -86,23 +91,23 @@ const Profile = () => {
       ) : (
         <div className="profile-details">
           <div className="profile-image-container">
-            {user.profileImage ? (
-              <img src={user.profileImage} alt="Profile" className="profile-image" />
+            {userData? (
+              <img src={imgUser} alt="Profile" className="profile-image" />
             ) : (
               <div className="profile-image-placeholder">No Image</div>
             )}
           </div>
           <div className="profile-field">
             <span className="profile-label">Name:</span>
-            <span className="profile-value">{user.name}</span>
+            <span className="profile-value">{userData.username}</span>
           </div>
           <div className="profile-field">
             <span className="profile-label">Email:</span>
-            <span className="profile-value">{user.email}</span>
+            <span className="profile-value">{userData.email}</span>
           </div>
           <div className="profile-field">
             <span className="profile-label">Address:</span>
-            <span className="profile-value">{user.address}</span>
+            <span className="profile-value">{userData.country}</span>
           </div>
           <button onClick={() => setEditMode(true)} className="edit-button">Edit</button>
         </div>

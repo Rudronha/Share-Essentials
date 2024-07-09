@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import styles from './StepOne.module.css';
+import axios from '../../../axiosConfig';
 
 const StepOne = ({ onNext }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    onNext({ username, email });
+    try{
+      const response = await axios.post('/users/send-email', { email: email });
+      onNext({ username, email });
+    }
+    catch (error) {
+      console.error('Error verifying email:', error);
+    }
   };
 
   return (

@@ -6,8 +6,11 @@ const sequelize = require('./config/db');
 const User = require('./models/userModel');
 const Product = require('./models/ProductModel');
 const Transaction = require('./models/TransactionModel');
+const cors = require('cors');
 
 const app = express();
+
+
 
 async function syncModels() {
     try {
@@ -18,6 +21,9 @@ async function syncModels() {
     }
 } 
 syncModels();
+
+// Use CORS middleware with specific origin
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Middleware for session management
 app.use(session({

@@ -31,7 +31,7 @@ const StepFive = ({ formData, onSubmit, onBack }) => {
           minLength="6"
         />
       </div>
-      <Link type=" " className={styles.linkBack} onClick={onBack}>Back</Link>
+      <button type=" " className={styles.btnBack} onClick={onBack}>Back</button>
       <button type="submit" className={styles.btn}>Signup</button>
     </form>
   );

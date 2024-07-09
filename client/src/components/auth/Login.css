@@ -1,19 +1,10 @@
-.homeContainer {
-  background-image: url('../../image/joe-woods.jpg'); /* Replace with the path to your image */
-  background-size: cover; /* Cover the entire container */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  min-height: 100vh; /* Ensure the container takes up the full viewport height */
-  display: flex;
-  flex-direction: column;
-}
 
 .loginContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
+    background-color: #f9f9f9;
     padding: 20px; /* Add padding to ensure content is not flush with the edge on smaller devices */
   }
   
