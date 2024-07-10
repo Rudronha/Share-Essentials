@@ -14,9 +14,10 @@ router.get('/logout', userAuthController.logout);
 
 //routes for user action
 router.get('/user/:id',userControlller.getUser);
+router.put('/updateuser/:id',userControlller.updateUser);
 router.post('/addItem', authMiddleware, userControlller.addItem);
 router.delete('/removeItem/:id', authMiddleware, userControlller.removeItem);
-router.put('/updateItem/:id', authMiddleware, userControlller.updateItem);
+router.put('/updateItem/:id', userControlller.updateItem);
 router.get('/getItem/:id', authMiddleware, userControlller.getItem);
 
 module.exports = router;

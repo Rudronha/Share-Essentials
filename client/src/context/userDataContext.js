@@ -8,8 +8,8 @@ const UserDataProvider = ({ children }) => {
     const [userData,setUserdata] = useState('');
     const { user } = useContext(UserContext);
     console.log(user);
-    useEffect(()=>{
-        const fatchUser = async()=>{
+    //Function to fetch user data
+    const fatchUser = async()=>{
         try{
             console.log("hello");
             if(user){
@@ -21,21 +21,22 @@ const UserDataProvider = ({ children }) => {
         }catch(error){
             console.error('Error in facting user data:',error);
         }
-        }
-        fatchUser();
-    },[user]);
+    }
+    
     
     // Function to update user data
-    const updateUserData = (userData) => {
-        
+    const updateUserData = async(updatedData) => {
+       setUserdata(updatedData);
     };
-
     // Function to clear user data
     const clearUserData = () => {
        
     };
-    //console.log(user.userId);
     
+
+    useEffect(()=>{
+        fatchUser();
+    },[user]);
     
     return (
         <UserDataContext.Provider value={{ userData, updateUserData, clearUserData }}>

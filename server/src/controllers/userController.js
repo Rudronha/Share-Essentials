@@ -12,11 +12,34 @@ exports.getUser = async(req, res) => {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
-        console.log(user);
+       // console.log(user);
         res.status(201).json(user);
     }catch(error){
         console.error('Error fetching user:', error);
         res.status(500).json({ error: 'Failed to fetch user' }); 
+    }
+}
+
+//update user data
+exports.updateUser = async(req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const { username, email,mobile, country, state, city } = req.body;
+
+        // Find product by id and update
+        const updatedProduct = await User.update({
+            username,
+            email,
+            country
+        }, {
+        where: { id: userId }
+        });
+
+        res.json({ message: 'User updated successfully' });
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(500).json({ error: 'Failed to update user'});
     }
 }
 
