@@ -34,7 +34,7 @@ const Signup = () => {
   const handleSubmit = async (data) => {
     try {
       // Handle the final form submission
-      //console.log(data);
+      console.log(data);
       const response = await axios.post('/users/register', data);
       //console.log(response.data);
       console.log('Signup successful:', response.data);

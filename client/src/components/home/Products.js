@@ -1,5 +1,5 @@
 // src/components/ProductList.js
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from '../../axiosConfig';
 import './Products.css';
 
@@ -9,6 +9,7 @@ import img3 from '../../image/img3.jpg';
 import img4 from '../../image/img4.png';
 
 import productData from './productdata.json';
+import { ProductContext } from '../../context/productContext';
 
 const imageMapping = {
   'img1.jpg': img1,
@@ -18,30 +19,35 @@ const imageMapping = {
 };
 
 const Products = () => {
+
+  const {allproducts} = useContext(ProductContext);
+
   //const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        //const response = await axios.get('/api/products/all');
-        //setProducts(response.data.products);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       //const response = await axios.get('/api/products/all');
+  //       //setProducts(response.data.products);
+  //     } catch (error) {
+  //       console.error('Error fetching products:', error);
+  //     }
+  //   };
 
-    //fetchProducts();
-  }, []);
+  //   //fetchProducts();
+  // }, []);
 
 
   return (
     <div className="product-list">
-      {productData.products.map((product) => (
+      {allproducts.map((product) => (
         <div key={product.id} className="product-card">
-          <img src={imageMapping[product.imageUrl]} alt={product.title} />
-          <h3>{product.title}</h3>
+          <img src={`http://localhost:5000${product.profilePicture}`} alt={product.name} />
+          <h3>{product.name}</h3>
           <p>{product.description}</p>
-          <p>${product.price}</p>
+          {product.isForSale?<p>$For sale - {product.salePrice}</p>:''}
+          {product.isForRent?<p>$For Borrow - {product.rentPrice}</p>:''}
+          {product.isForShare?<p>$For Share - {product.sharePrice}</p>:''}
         </div>
       ))}
     </div>
