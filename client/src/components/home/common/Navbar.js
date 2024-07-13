@@ -4,6 +4,7 @@ import './Navbar.css';
 import bell from '../../../image/bell.png';
 import fav from '../../../image/favorite_16.png';
 import Bell from '../Bell'; // Import the Bell component
+import axios from 'axios';
 
 const Navbar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -11,6 +12,8 @@ const Navbar = () => {
   const handleBellClick = () => {
     setShowNotifications(!showNotifications);
   };
+
+  
 
   return (
     <nav className="navbar">
@@ -28,7 +31,7 @@ const Navbar = () => {
           <div className="navbar-icon">
             <i className="fas fa-user">
               <Link to="/home/favorite">
-                <img src={fav} alt='favorite' />
+                <img src={fav} alt='favorite'/>
               </Link>
             </i>
           </div>

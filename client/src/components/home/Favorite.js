@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Favorite.css';
+import { FavoriteContext } from '../../context/favoriteContext';
 
 // Mock favorite items data for demonstration purposes
 
   
 
-const Favorite = ({ items, removeFromFavorites }) => {
-
+const Favorite = () => {
+  const { favorites, removeFromFavorites } = useContext(FavoriteContext);
+  //console.log(favorites.Product);
   return (
     <div className="container">
     <div className="favorite-container">
       <h2 className="favorite-title">Favorite Items</h2>
-      {items.length === 0 ? (
+      {favorites.length === 0 ? (
         <p className="no-favorites">You have no favorite items.</p>
       ) : (
         <ul className="favorite-list">
-          {items.map((item, index) => (
+          {favorites.map((product, index) => (
             <li key={index} className="favorite-item">
-              <img src={item.image} alt={item.name} className="favorite-image" />
+              <img src={`http://localhost:5000${product.Product.profilePicture}`} alt={product.Product.name} className="favorite-image" />
               <div className="favorite-details">
-                <span className="favorite-name">{item.name}</span>
-                <span className="favorite-price">${item.price.toFixed(2)}</span>
+                <span className="favorite-name">{product.Product.name}</span>
+                {product.Product.isForSale?<span className="favorite-price">${product.Product.salePrice}</span>:''}
+                {product.Product.isForRent?<span className="favorite-price">${product.Product.rentPrice}</span>:''}
+                {product.Product.isForShare?<span className="favorite-price">${product.Product.sharePrice}</span>:''}
               </div>
-              <button onClick={() => removeFromFavorites(index)} className="remove-favorite-button">Remove</button>
+              <button onClick={() => removeFromFavorites(product.id)} className="remove-favorite-button">Remove</button>
             </li>
           ))}
         </ul>

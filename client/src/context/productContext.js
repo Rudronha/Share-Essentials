@@ -7,7 +7,7 @@ const ProductContext = createContext();
 const ProductProvider = ({ children }) => {
     const [allproducts, setProducts] = useState([]);
     const {user} = useContext(UserContext);
-
+    //console.log(allproducts);
     // Function to fetch items
     const fetchItems = async()=>{
         try{

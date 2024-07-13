@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     // Handle login logic here
     try{
-      const response = await axios.post('/users/login',{email:email,password:password});
+      const response = await axios.post('/users/login',{email:email,password:password},{ withCredentials: true });
       const user = { 
         userId: response.data.userId, 
         username: response.data.username

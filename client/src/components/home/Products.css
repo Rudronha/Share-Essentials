@@ -32,6 +32,16 @@
   .product-card h3 {
     margin: 10px 0;
     font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    padding-right: 5px;
+    gap: 38%;
+    .fav{
+      width: 20px;
+      height: 20px;
+      
+    }
   }
   
   .product-card p {

@@ -23,7 +23,10 @@ async function syncModels() {
 syncModels();
 
 // Use CORS middleware with specific origin
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ 
+  origin: 'http://localhost:3000',
+  credentials: true
+ }));
 
 app.use('/uploads', express.static(path.join(__dirname,'controllers', 'uploads')));
 
@@ -31,7 +34,12 @@ app.use('/uploads', express.static(path.join(__dirname,'controllers', 'uploads')
 app.use(session({
     secret: 'secret', // Change this to a strong, random secret
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      secure: false, // Set to true if using HTTPS
+      maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
   }));
 
 app.use(express.json());

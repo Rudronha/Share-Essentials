@@ -6,6 +6,7 @@ import { UserProvider } from './context/userContext';
 import { UserDataProvider } from './context/userDataContext';
 import { ItemProvider } from './context/itemContext';
 import { ProductProvider } from './context/productContext';
+import { FavoriteProvider } from './context/favoriteContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,7 +16,9 @@ root.render(
       <UserDataProvider>
         <ItemProvider>
           <ProductProvider>
-          <App />
+            <FavoriteProvider>
+              <App />
+            </FavoriteProvider>
           </ProductProvider>
         </ItemProvider>
       </UserDataProvider>
