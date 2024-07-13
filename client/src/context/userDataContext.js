@@ -7,15 +7,15 @@ const UserDataContext = createContext();
 const UserDataProvider = ({ children }) => {
     const [userData,setUserdata] = useState('');
     const { user } = useContext(UserContext);
-    console.log(user);
+    //console.log(user);
     //Function to fetch user data
     const fatchUser = async()=>{
         try{
-            console.log("hello");
+           // console.log("hello");
             if(user){
                 const response = await axios.get(`/users/user/${user.userId}`);
                 setUserdata(response.data);
-                console.log(response.data);
+               // console.log(response.data);
             }
             
         }catch(error){

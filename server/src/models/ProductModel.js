@@ -18,7 +18,7 @@ const Product = sequelize.define('Product', {
     allowNull: true
   },
   profilePicture: {
-    type: DataTypes.BLOB('long'), // 'long' is optional, depending on database constraints
+    type: DataTypes.STRING, 
     allowNull: true // Allow null if profile picture is optional
   },
   isForSale: {

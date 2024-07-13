@@ -7,10 +7,9 @@ const User = require('./models/userModel');
 const Product = require('./models/ProductModel');
 const Transaction = require('./models/TransactionModel');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
-
-
 
 async function syncModels() {
     try {
@@ -24,6 +23,8 @@ syncModels();
 
 // Use CORS middleware with specific origin
 app.use(cors({ origin: 'http://localhost:3000' }));
+
+app.use('/uploads', express.static(path.join(__dirname,'controllers', 'uploads')));
 
 // Middleware for session management
 app.use(session({

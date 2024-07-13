@@ -4,7 +4,7 @@ const User = require('../models/userModel');
 //get user details
 exports.getUser = async(req, res) => {
     const userId = req.params.id;
-    console.log(userId);
+    //console.log(userId);
     try{
         const user = await User.findByPk(userId,{
             attributes: ['username','email','country','state','city','mobile']
@@ -43,30 +43,27 @@ exports.updateUser = async(req, res) => {
     }
 }
 
-
-//add Item controller
-exports.addItem = async (req, res) => {
+//add item controller
+exports.addProduct = async (req, res) => {
+    const { name, description, isForSale, salePrice, isForRent, rentPrice, isForShare, sharePrice, UserId } = req.body;
+    const profilePicture = req.file ? req.file.path.replace(/\\/g, '/').replace('src/controllers', '') : null; // Replace Windows backslashes with forward slashes and remove initial path
     try {
-        const { name, description, profilePicture, isForSale, salePrice, isForRent, rentPrice, isForShare, sharePrice, userId } = req.body;
-    
-        // Create new product in database
-        const newProduct = await Product.create({
-          name,
-          description,
-          profilePicture,
-          isForSale,
-          salePrice,
-          isForRent,
-          rentPrice,
-          isForShare,
-          sharePrice,
-          userId
-        });
-    
-        res.status(201).json(newProduct);
+      const newProduct = await Product.create({
+        name,
+        description,
+        profilePicture,
+        isForSale,
+        salePrice,
+        isForRent,
+        rentPrice,
+        isForShare,
+        sharePrice,
+        UserId
+      });
+  
+      res.status(201).json(newProduct);
     } catch (error) {
-        console.error('Error adding product:', error);
-        res.status(500).json({ error: 'Failed to add product' });
+      res.status(400).json({ error: error.message });
     }
 }
 
@@ -74,7 +71,8 @@ exports.addItem = async (req, res) => {
 exports.getItem = async (req, res) => {
     try {
         // Fetch all products from database
-        const products = await Product.findAll();
+        const id = req.params.id;
+        const products = await Product.findAll({ where:{ UserId:id } });
     
         res.json(products);
     } catch (error) {

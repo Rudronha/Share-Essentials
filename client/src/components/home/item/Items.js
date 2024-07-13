@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Items.css';
 import Itemform from './Itemform';
+import axios from '../../../axiosConfig';
+import { ItemContext } from '../../../context/itemContext';
 
 
 function Items() {
-  const [items, setItems] = useState([]);
+  const { items, updateItems } = useContext(ItemContext);
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-  const addItem = (item) => {
-    setItems([...items, item]);
+  const addItem = (formData) => {
+      updateItems(formData);
   };
 
   const toggleForm = () => {
     setIsFormVisible(!isFormVisible);
   };
     return (
-        <div class="container">
+        <div className="container">
             <div className="add-item-button-container">
               <button onClick={toggleForm} className="add-item-button">
                 {isFormVisible ? 'Cancel' : 'Add Item'}
@@ -27,10 +29,10 @@ function Items() {
               <ul className="items-list">
                 {items.map((item, index) => (
                   <li key={index} className="item">
-                    <img src={item.image} alt={item.name} className="item-image" />
+                    <img src={`http://localhost:5000${item.profilePicture}`} alt={item.name} className="item-image" />
                     <div className="item-details">
                       <span className="item-name">{item.name}</span>
-                      <span className="item-price">${item.price.toFixed(2)}</span>
+                      <span className="item-price">${item.salePrice}</span>
                     </div>
                   </li>
                 ))}

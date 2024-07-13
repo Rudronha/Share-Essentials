@@ -33,7 +33,7 @@ function Cart() {
       };
     
     return (
-        <div class="container">
+        <div className="container">
             <CartComponent
             items={items}
             removeFromCart={removeFromCart}

@@ -60,7 +60,7 @@ function Order() {
         },
       ];
     return (
-        <div class="container">
+        <div className="container">
             <OrderComponent orders={orders} />;
         </div>
     );
