@@ -4,6 +4,7 @@ import fav from '../../image/heart.png';
 import favFilled from '../../image/heart_filled.png'; // New filled heart image
 import { ProductContext } from '../../context/productContext';
 import { FavoriteContext } from '../../context/favoriteContext';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const { allproducts } = useContext(ProductContext);
@@ -13,7 +14,9 @@ const Products = () => {
     <div className="product-list">
       {allproducts.map((product) => (
         <div key={product.id} className="product-card">
-          <img src={`http://localhost:5000${product.profilePicture}`} alt={product.name} />
+          <Link to={`/home/item/${product.id}`}>
+            <img src={`http://localhost:5000${product.profilePicture}`} alt={product.name}/>
+          </Link>
           <h3>
             {product.name}
             <img
@@ -21,9 +24,8 @@ const Products = () => {
               alt="fav"
               className='fav'
               onClick={() =>{ 
-                isFavorite(product.id)?removeFromFavorites(retFavoriteId(product.id)) : addToFavorite(product);
-               }
-              }
+                isFavorite(product.id) ? removeFromFavorites(retFavoriteId(product.id)) : addToFavorite(product);
+               }}
             />
           </h3>
           <p>{product.description}</p>

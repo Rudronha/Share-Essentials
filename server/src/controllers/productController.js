@@ -48,7 +48,7 @@ exports.getFavorites = async(req, res) => {
 //add to favirote
 exports.addFavorite = async(req, res) => {
     const productId = req.params.id;
-    console.log(req.session);
+    //console.log(req.session);
     const userId = req.session.user.id;
     try{
         const products = await Favorite.create({

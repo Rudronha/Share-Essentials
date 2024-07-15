@@ -1,5 +1,5 @@
-import React, { useState,useContext,useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './home/common/Navbar';
 import Sidebar from './home/common/Sidebar';
 import Order from './home/Order';
@@ -10,6 +10,7 @@ import './Home.css';
 import Items from './home/item/Items';
 import Favorite from './home/Favorite';
 import Bell from './home/Bell';
+import Product from './home/Product';
 
 function Home(){
 
@@ -25,6 +26,7 @@ function Home(){
             <Route path='product' element={<Items/>}/>
             <Route path='favorite' element={<Favorite/>}/>
             <Route path='noti' element={<Bell/>}/>
+            <Route path='/item/:id' element={<Product/>} />
           </Routes>
         </div>
     );

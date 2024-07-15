@@ -1,14 +1,28 @@
 import React, { useContext } from 'react';
 import './Favorite.css';
 import { FavoriteContext } from '../../context/favoriteContext';
-
+import { CartContext } from '../../context/cartContext';
+import { toast } from 'react-toastify';
 // Mock favorite items data for demonstration purposes
 
   
 
 const Favorite = () => {
   const { favorites, removeFromFavorites } = useContext(FavoriteContext);
+  const {addToCart} = useContext(CartContext);
   //console.log(favorites.Product);
+
+  const handleMovetoCart = (product)=>{
+    addToCart(product.Product);
+    removeFromFavorites(product.id);
+    toast.success('Moded to Cart successfully!');
+  };
+
+  const handelRemove = (id)=>{
+    removeFromFavorites(id);
+    toast.info('Product removed from Favorite.');
+  };
+
   return (
     <div className="container">
     <div className="favorite-container">
@@ -26,7 +40,8 @@ const Favorite = () => {
                 {product.Product.isForRent?<span className="favorite-price">${product.Product.rentPrice}</span>:''}
                 {product.Product.isForShare?<span className="favorite-price">${product.Product.sharePrice}</span>:''}
               </div>
-              <button onClick={() => removeFromFavorites(product.id)} className="remove-favorite-button">Remove</button>
+              <button className="move-to-bag-button" onClick={()=>handleMovetoCart(product)}>Move to Cart</button>
+              <button onClick={() => handelRemove(product.id)} className="remove-favorite-button">Remove</button>
             </li>
           ))}
         </ul>

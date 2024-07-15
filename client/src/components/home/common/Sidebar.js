@@ -9,6 +9,7 @@ import logout from '../../../image/power.png';
 import './Sidebar.css';
 import { UserContext } from '../../../context/userContext';
 import axios from '../../../axiosConfig';
+import { toast } from 'react-toastify';
 
 function Sidebar(){
     const {user, clearUser } = useContext(UserContext);
@@ -18,6 +19,7 @@ function Sidebar(){
             const response = await axios.get('/users/logout');
             clearUser();
             console.log(user);
+            toast.success('User Logout Successfully!');
             navigate('/login');
         }catch(error){
             console.error('Error in logout:',error);

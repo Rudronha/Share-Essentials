@@ -91,6 +91,24 @@
     padding: 5px 10px;
     cursor: pointer;
   }
+
+  .move-to-fav-button {
+    margin-right: 20px;
+    background-color: lightskyblue;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .remove-button:hover {
+    background-color: #d32f2f;
+  }
+
+  .move-to-fav-button:hover {
+    background-color: rgb(86, 197, 241);
+  }
   
   .total-price {
     text-align: center;
@@ -98,4 +116,20 @@
     font-weight: bold;
     margin-top: 20px;
   }
+
+  .buy-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: rgb(20, 165, 20);
+    border: 1px solid #a88734;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 46%;
+}
+
+.buy-button:hover{
+  background-color: green;
+}
   

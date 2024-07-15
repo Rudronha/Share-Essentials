@@ -3,6 +3,7 @@ import './Login.css';
 import axios from '../../axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,6 +22,7 @@ const Login = () => {
       console.log({ "message":response.data.message });
       //localStorage.setItem('user');
       updateUser(user);
+      toast.success('Login Successfully!');
       navigate('/home');
     }catch(error){
       console.error('Error Login:', error);

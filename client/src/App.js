@@ -14,6 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
+          
           {user?<Route path="/home/*" element={<Home/>} />:
             (<>
               <Route path="/login" element={<Login />} />
