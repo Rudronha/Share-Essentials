@@ -132,4 +132,7 @@
 .buy-button:hover{
   background-color: green;
 }
-  
+ 
+.no-cart{
+  text-align: center;
+}

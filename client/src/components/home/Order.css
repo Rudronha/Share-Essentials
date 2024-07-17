@@ -84,4 +84,9 @@
   font-size: 14px;
 }
 
+.contect-details{
+  display: flex;
+  flex-direction: column;
+}
+
   

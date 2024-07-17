@@ -6,6 +6,7 @@ import { ProductContext } from '../../context/productContext';
 import { FavoriteContext } from '../../context/favoriteContext';
 import { Link } from 'react-router-dom';
 
+
 const Products = () => {
   const { allproducts } = useContext(ProductContext);
   const { addToFavorite, removeFromFavorites, isFavorite ,retFavoriteId } = useContext(FavoriteContext);

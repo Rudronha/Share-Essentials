@@ -6,6 +6,7 @@ import Home from './components/Home';
 import './App.css';
 import { UserContext } from './context/userContext';
 
+
 function App() {
   const {user}  = useContext(UserContext);
   //console.log(user.userId);
@@ -14,7 +15,6 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          
           {user?<Route path="/home/*" element={<Home/>} />:
             (<>
               <Route path="/login" element={<Login />} />
@@ -28,3 +28,10 @@ function App() {
 }
 
 export default App;
+
+
+/*
+
+
+
+*/

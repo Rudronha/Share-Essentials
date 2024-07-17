@@ -10,6 +10,8 @@ import { ItemProvider } from './context/itemContext';
 import { ProductProvider } from './context/productContext';
 import { FavoriteProvider } from './context/favoriteContext';
 import { CartProvider } from './context/cartContext';
+import { RequestProvider } from './context/requestContext';
+import { TransactionProvider } from './context/transactionContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,7 +23,11 @@ root.render(
           <ProductProvider>
             <FavoriteProvider>
               <CartProvider>
-                  <App />
+                  <RequestProvider>
+                    <TransactionProvider>
+                      <App />
+                    </TransactionProvider>
+                  </RequestProvider>
                 <ToastContainer/>
               </CartProvider>
             </FavoriteProvider>

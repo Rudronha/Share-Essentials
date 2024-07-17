@@ -9,7 +9,7 @@ const UserDataProvider = ({ children }) => {
     const { user } = useContext(UserContext);
     //console.log(user);
     //Function to fetch user data
-    const fatchUser = async()=>{
+    const fatchUser = async(user)=>{
         try{
            // console.log("hello");
             if(user){
@@ -35,11 +35,11 @@ const UserDataProvider = ({ children }) => {
     
 
     useEffect(()=>{
-        fatchUser();
+        fatchUser(user);
     },[user]);
     
     return (
-        <UserDataContext.Provider value={{ userData, updateUserData, clearUserData }}>
+        <UserDataContext.Provider value={{ userData, updateUserData, clearUserData, fatchUser }}>
             {children}
         </UserDataContext.Provider>
     );

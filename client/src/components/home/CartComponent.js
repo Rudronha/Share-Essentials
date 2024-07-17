@@ -3,11 +3,15 @@ import { useEffect, useState } from 'react';
 import './Cart.css';
 import { FavoriteContext } from '../../context/favoriteContext';
 import { toast } from 'react-toastify';
+import { RequestContext } from '../../context/requestContext';
+import { UserContext } from '../../context/userContext';
 
 
 const CartComponent = ({ items, removeFromCart }) => {
     // Calculate total price
     const {addToFavorite} = useContext(FavoriteContext);
+    const {sendRequest} = useContext(RequestContext);
+    const {user} = useContext(UserContext);
 
     const totalPrice = items.reduce((acc, item) =>{ 
       if (item.Product.isForSale) {
@@ -32,11 +36,26 @@ const CartComponent = ({ items, removeFromCart }) => {
       removeFromCart(item.id);
       toast.info('Product removed from Cart.');
     };
-  
+
+    const handelSubmit = () => {
+      items.map((item)=>{
+        const data = {
+          senderId: user.userId,
+          receiverId: item.Product.UserId,
+          type: "get-item",
+          ProductId: item.Product.id,
+        }
+        console.log(data);
+        sendRequest(data);
+        removeFromCart(item.id);
+      });
+    }
+    console.log(items.length);
     return (
       <div className="cart-container">
         <h2 className="cart-title">Shopping Cart</h2>
-        <ul className="cart-list">
+        {items.length?
+        (<><ul className="cart-list">
           {items.map((item, index) => (
             <li key={index} className="cart-item">
               <img src={`http://localhost:5000${item.Product.profilePicture}`} alt={item.Product.name} className="item-image" />
@@ -52,7 +71,10 @@ const CartComponent = ({ items, removeFromCart }) => {
           ))}
         </ul>
         <h3 className="total-price">Total: ${totalPrice}</h3>
-        <button className='buy-button'>Buy</button>
+        <button className='buy-button' onClick={()=> handelSubmit()}>Buy</button>
+        </>):
+        <div className='no-cart'>Add Product to Buy!</div>
+        }
       </div>
     );
   };
